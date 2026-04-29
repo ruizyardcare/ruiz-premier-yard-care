@@ -460,20 +460,96 @@
 
     .gallery-grid {
       display: grid;
-      gap: 16px;
-      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery-card {
+    .before-after-card {
+      border: 1px solid var(--line);
+      background: var(--paper);
       border-radius: 34px;
       overflow: hidden;
-      position: relative;
-      min-height: 290px;
       box-shadow: var(--shadow);
     }
 
-    .gallery-card.tall {
-      min-height: 600px;
+    .before-after-head {
+      padding: 22px 22px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .before-after-head h4 {
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .before-after-head p {
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .project-tag {
+      flex: 0 0 auto;
+      border: 1px solid rgba(111,159,52,0.18);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .before-after-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .before-after-shot {
+      position: relative;
+      min-height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #dce7d0;
+    }
+
+    .before-after-shot img {
+      transition: transform 0.35s ease;
+    }
+
+    .before-after-card:hover .before-after-shot img {
+      transform: scale(1.035);
+    }
+
+    .photo-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(16, 33, 23, 0.82);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .gallery-note {
+      margin-top: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
     }
 
     .overlay {
@@ -646,6 +722,9 @@
       .section-head h3, .review-dark h3, .cta h3 { font-size: 30px; }
       .card, .cta, .review-dark, .process-wrap { border-radius: 28px; }
       .service-card h4 { font-size: 24px; }
+      .before-after-head { flex-direction: column; }
+      .before-after-images { grid-template-columns: 1fr; }
+      .before-after-shot { min-height: 280px; }
     }
   </style>
 </head>
@@ -820,28 +899,95 @@
     <section class="block" id="gallery">
       <div class="section-head">
         <div>
-          <div class="section-label" style="color: var(--accent);">Gallery</div>
-          <h3>Visual sections that make the brand feel real</h3>
+          <div class="section-label" style="color: var(--accent);">Before &amp; After</div>
+          <h3>Real cleanup results from recent yard projects</h3>
         </div>
-        <p>Replace these sample images with your real job photos and the site will instantly feel custom to your business.</p>
+        <p>See the difference a detailed cleanup, weed removal, and fresh mulch finish can make for an outdoor space.</p>
       </div>
+
       <div class="gallery-grid">
-        <div class="gallery-card tall">
-          <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1400&q=80" alt="Detailed lawn care" />
-          <div class="overlay"></div>
-          <div class="caption">Crisp lawn lines</div>
-        </div>
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1400&q=80" alt="Fresh mulch beds" />
-          <div class="overlay"></div>
-          <div class="caption">Beds that feel finished</div>
-        </div>
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80" alt="Clean walkway and landscaping" />
-          <div class="overlay"></div>
-          <div class="caption">Fresh, clean walkways</div>
-        </div>
+        <article class="before-after-card">
+          <div class="before-after-head">
+            <div>
+              <h4>Backyard cleanup + fresh mulch reset</h4>
+              <p>Weeds cleared, debris cleaned up, and mulch installed for a finished low-maintenance look.</p>
+            </div>
+            <span class="project-tag">Cleanup</span>
+          </div>
+          <div class="before-after-images">
+            <div class="before-after-shot">
+              <span class="photo-label">Before</span>
+              <img src="assets/gallery/before-cleanup-1.jpg" alt="Backyard before weed cleanup and mulch install" />
+            </div>
+            <div class="before-after-shot">
+              <span class="photo-label">After</span>
+              <img src="assets/gallery/after-cleanup-1.jpg" alt="Backyard after weed cleanup and fresh mulch install" />
+            </div>
+          </div>
+        </article>
+
+        <article class="before-after-card">
+          <div class="before-after-head">
+            <div>
+              <h4>Shaded garden bed refresh</h4>
+              <p>Overgrowth reduced and open areas cleaned so the landscape feels sharper and easier to maintain.</p>
+            </div>
+            <span class="project-tag">Detail Work</span>
+          </div>
+          <div class="before-after-images">
+            <div class="before-after-shot">
+              <span class="photo-label">Before</span>
+              <img src="assets/gallery/before-cleanup-2.jpg" alt="Shaded yard before cleanup" />
+            </div>
+            <div class="before-after-shot">
+              <span class="photo-label">After</span>
+              <img src="assets/gallery/after-cleanup-2.jpg" alt="Shaded yard after cleanup" />
+            </div>
+          </div>
+        </article>
+
+        <article class="before-after-card">
+          <div class="before-after-head">
+            <div>
+              <h4>Front bed cleanup around trees and rock borders</h4>
+              <p>Ground areas cleaned up, natural borders brought back, and the space opened up around the home.</p>
+            </div>
+            <span class="project-tag">Yard Reset</span>
+          </div>
+          <div class="before-after-images">
+            <div class="before-after-shot">
+              <span class="photo-label">Before</span>
+              <img src="assets/gallery/before-cleanup-3.jpg" alt="Landscape bed before cleanup around home" />
+            </div>
+            <div class="before-after-shot">
+              <span class="photo-label">After</span>
+              <img src="assets/gallery/after-cleanup-3.jpg" alt="Landscape bed after cleanup around home" />
+            </div>
+          </div>
+        </article>
+
+        <article class="before-after-card">
+          <div class="before-after-head">
+            <div>
+              <h4>Woodland pathway cleanup</h4>
+              <p>Natural stone, drainage rock, and surrounding beds cleaned for a more intentional finished look.</p>
+            </div>
+            <span class="project-tag">Pathway</span>
+          </div>
+          <div class="before-after-images">
+            <div class="before-after-shot">
+              <span class="photo-label">Before</span>
+              <img src="assets/gallery/before-cleanup-4.jpg" alt="Woodland pathway before cleanup" />
+            </div>
+            <div class="before-after-shot">
+              <span class="photo-label">After</span>
+              <img src="assets/gallery/after-cleanup-5.jpg" alt="Woodland pathway after cleanup" />
+            </div>
+          </div>
+        </article>
       </div>
+
+      <p class="gallery-note">Want your yard to be next? Call or text Ruiz Premier Yard Care for a free quote.</p>
     </section>
 
     <section class="block" id="reviews">
